@@ -6,11 +6,13 @@ void UserInterface::handleUser()
 {
     string sortingAlgorithms;
     string inputType;
+
     int numOfValues;
     int step;
+    int iterations;
 
     vector<Numbers*> dataSets;
-    vector<Numbers*> algorithmSet;
+    vector<Sort*> algorithmSet;
 
     cout << "Chose sorting algorithms. Type:\n";
     cout << "<1> for bubble sort\n";
@@ -20,31 +22,34 @@ void UserInterface::handleUser()
     cout << "<5> for counting sort\n";
     cout << "<6> for heap sort\n";
 
-//    while (!algorithmSet.size())
-//    {
+    while (!algorithmSet.size())
+    {
         cin >> sortingAlgorithms;
 
- /*       for(int i=0; i<inputType.size(); i++)
+       for(int i=0; i<sortingAlgorithms.size(); i++)
         {
-            switch (inputType[i]) {
+            switch (sortingAlgorithms[i]) {
             case '1' :
-                algorithmSet.push_back(new Sorted);
+                algorithmSet.push_back(new BubbleSort);
                 break;
             case '2' :
-                algorithmSet.push_back(new Random);
+                algorithmSet.push_back(new QuickSort);
                 break;
             case '3' :
-                algorithmSet.push_back(new BackwardSorted);
+                algorithmSet.push_back(new InsertionSort);
                 break;
             case '4' :
-                algorithmSet.push_back(new SortedRandomFirst);
+                algorithmSet.push_back(new MergeSort);
                 break;
             case '5' :
-                algorithmSet.push_back(new BackwardSortedRandomLast);
+                algorithmSet.push_back(new CountingSort);
+                break;
+            case '6' :
+                algorithmSet.push_back(new HeapSort);
                 break;
             }
-        }*/
-//    }
+        }
+    }
 
     cout << "\nChose input types. Type:\n";
     cout << "<1> for sorted\n";
@@ -79,16 +84,10 @@ void UserInterface::handleUser()
         }
     }
 
-//    for_each(dataSets)
-
-
-
-
-
-    cout << "\nEnter number of values:\n";
+    cout << "\nEnter initial number of values:\n";
     cin >> numOfValues;
 
-    while (numOfValues < 2)
+    while (numOfValues <1)
     {
         cout << "Wrong input!!!\n";
         cin >> numOfValues;
@@ -97,11 +96,21 @@ void UserInterface::handleUser()
     cout << "\nEnter step:\n";
     cin >> step;
 
-    while (step > numOfValues || step < 0)
+    while (step < 1)
     {
         cout << "Wrong input!!!\n";
         cin >> step;
     }
-//    Analyser::analyse(sortingAlgorithms, inputType, numOfValues, step);
+
+    cout << "\nEnter number of iterations:\n";
+    cin >> iterations;
+
+    while (iterations < 1)
+    {
+        cout << "Wrong input!!!\n";
+        cin >> iterations;
+    }
+
+    Analyser::analyse(dataSets, algorithmSet, numOfValues, step, iterations);
 }
 

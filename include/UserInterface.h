@@ -4,13 +4,22 @@
 #include <cstdio>
 #include <map>
 
-#include "Analyser.h"
+#include "Sort.h"
+#include "BubbleSort.h"
+#include "QuickSort.h"
+#include "InsertionSort.h"
+#include "MergeSort.h"
+#include "CountingSort.h"
+#include "HeapSort.h"
+
 #include "Numbers.h"
 #include "Sorted.h"
 #include "Random.h"
 #include "BackwardSorted.h"
 #include "SortedRandomFirst.h"
 #include "BackwardSortedRandomLast.h"
+
+#include "Analyser.h"
 
 class UserInterface
 {
