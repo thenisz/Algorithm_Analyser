@@ -10,7 +10,7 @@ MergeSort::~MergeSort()
     //dtor
 }
 
-void MergeSort::sortNumbers(vector<unsigned int> *valuesVector)
+vector<unsigned int> MergeSort::sortNumbers(vector<unsigned int> valuesVector)
 {
 
 }

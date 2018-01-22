@@ -1,6 +1,6 @@
 #include "Numbers.h"
 
-vector<unsigned int>* Numbers::getNumbers()
+vector<unsigned int> Numbers::getNumbers()
 {
-    return &numbers;
+    return numbers;
 }

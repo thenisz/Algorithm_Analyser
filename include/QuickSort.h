@@ -10,7 +10,7 @@ class QuickSort : public Sort
     public:
         QuickSort();
         virtual ~QuickSort();
-        void sortNumbers(vector<unsigned int> *valuesVector);
+        vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
 };
 
 #endif // QUICKSORT_H

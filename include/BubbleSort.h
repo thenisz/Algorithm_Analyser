@@ -9,7 +9,7 @@ class BubbleSort : public Sort
     public:
         BubbleSort();
         virtual ~BubbleSort();
-        void sortNumbers(vector<unsigned int> *valuesVector);
+        vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
 };
 
 #endif // BUBBLESORT_H

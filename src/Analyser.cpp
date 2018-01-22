@@ -12,12 +12,11 @@ void Analyser::analyse(vector<Numbers*> dataSets, vector<Sort*> algorithmSet, in
     {
         for(Numbers* elementNum : dataSets)
         {
+            elementNum->generateNumbers(numOfValues);
+            storeData(elementNum->getNumbers());
             for(Sort* elementSort : algorithmSet)
             {
-                elementNum->generateNumbers(numOfValues);
-                storeData(*(elementNum->getNumbers()));
-                elementSort->sortNumbers(elementNum->getNumbers());
-                storeData(*(elementNum->getNumbers()));
+                storeData(elementSort->sortNumbers(elementNum->getNumbers()));
             }
         }
         numOfValues += step;

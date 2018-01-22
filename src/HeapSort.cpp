@@ -10,7 +10,7 @@ HeapSort::~HeapSort()
     //dtor
 }
 
-void HeapSort::sortNumbers(vector<unsigned int> *valuesVector)
+vector<unsigned int> HeapSort::sortNumbers(vector<unsigned int> valuesVector)
 {
 
 }

@@ -10,7 +10,7 @@ CountingSort::~CountingSort()
     //dtor
 }
 
-void CountingSort::sortNumbers(vector<unsigned int> *valuesVector)
+vector<unsigned int> CountingSort::sortNumbers(vector<unsigned int> valuesVector)
 {
 
 }

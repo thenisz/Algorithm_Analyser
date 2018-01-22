@@ -9,7 +9,7 @@ class CountingSort : public Sort
     public:
         CountingSort();
         virtual ~CountingSort();
-        void sortNumbers(vector<unsigned int> *valuesVector);
+        vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
     protected:
 
     private:
