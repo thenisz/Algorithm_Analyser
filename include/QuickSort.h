@@ -1,5 +1,6 @@
 #ifndef QUICKSORT_H
 #define QUICKSORT_H
+#include <stdlib.h>
 
 #include <Sort.h>
 
@@ -10,9 +11,6 @@ class QuickSort : public Sort
         QuickSort();
         virtual ~QuickSort();
         void sortNumbers(vector<unsigned int> *valuesVector);
-    protected:
-
-    private:
 };
 
 #endif // QUICKSORT_H

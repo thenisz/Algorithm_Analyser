@@ -2,7 +2,6 @@
 #define USERINTERFACE_H
 #include <iostream>
 #include <cstdio>
-#include <map>
 
 #include "Sort.h"
 #include "BubbleSort.h"

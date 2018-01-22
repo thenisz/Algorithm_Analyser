@@ -1,5 +1,4 @@
 #include "Analyser.h"
-#include "Sorter.h"
 
 #include "Sorted.h"
 #include "Random.h"
@@ -29,8 +28,6 @@ void Analyser::storeData(vector<unsigned int> vector1)
 {
     ofstream myfile;
     myfile.open ("results.csv", fstream::app);
- //   myfile << "This is the first cell in the first column.\n";
-
     for (int i=0; i < vector1.size(); i++)
     {
         myfile << vector1[i] << ";";
