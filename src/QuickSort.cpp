@@ -14,6 +14,7 @@ int compare (const void * a, const void * b)
 {
     return ( *(int*)a - *(int*)b );
 }
+
 vector<unsigned int> QuickSort::sortNumbers(vector<unsigned int> valuesVector)
 {
     qsort(valuesVector.data(), valuesVector.size(), sizeof(int), compare);
