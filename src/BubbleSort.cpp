@@ -1,15 +1,5 @@
 #include "BubbleSort.h"
 
-BubbleSort::BubbleSort()
-{
-    //ctor
-}
-
-BubbleSort::~BubbleSort()
-{
-    //dtor
-}
-
 vector<unsigned int> BubbleSort::sortNumbers(vector<unsigned int> valuesVector)
 {
     bool swapp = true;

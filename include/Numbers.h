@@ -13,7 +13,6 @@ class Numbers
         virtual void generateNumbers(int numVal) = 0;
     protected:
         vector<unsigned int> numbers;
-    private:
 };
 
 #endif // NUMBERS_H

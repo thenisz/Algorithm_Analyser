@@ -4,11 +4,12 @@
 
 using namespace std;
 
+/*********************************************************************************************************
+    Abstract class for sorting algorithms.
+*********************************************************************************************************/
 class Sort
 {
     public:
-        Sort();
-        virtual ~Sort();
         virtual vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector) = 0;
 };
 

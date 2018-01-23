@@ -7,12 +7,7 @@
 class MergeSort : public Sort
 {
     public:
-        MergeSort();
-        virtual ~MergeSort();
         vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
-    protected:
-
-    private:
 };
 
 #endif // MERGESORT_H

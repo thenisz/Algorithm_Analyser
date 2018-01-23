@@ -6,12 +6,7 @@
 class BackwardSortedRandomLast : public Numbers
 {
     public:
-        BackwardSortedRandomLast();
-        virtual ~BackwardSortedRandomLast();
        void generateNumbers(int numVal);
-    protected:
-
-    private:
 };
 
 #endif // BACKWARDSORTEDRANDOMLAST_H

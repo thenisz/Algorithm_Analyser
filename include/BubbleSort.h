@@ -7,8 +7,6 @@
 class BubbleSort : public Sort
 {
     public:
-        BubbleSort();
-        virtual ~BubbleSort();
         vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
 };
 

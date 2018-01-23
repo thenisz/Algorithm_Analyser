@@ -6,11 +6,7 @@
 class SortedRandomFirst : public Numbers
 {
     public:
-        SortedRandomFirst();
-        virtual ~SortedRandomFirst();
         void generateNumbers(int numVal);
-    protected:
-    private:
 };
 
 #endif // SORTEDRANDOMFIRST_H

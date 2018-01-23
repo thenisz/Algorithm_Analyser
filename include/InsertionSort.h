@@ -7,12 +7,7 @@
 class InsertionSort : public Sort
 {
     public:
-        InsertionSort();
-        virtual ~InsertionSort();
         vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
-    protected:
-
-    private:
 };
 
 #endif // INSERTIONSORT_H

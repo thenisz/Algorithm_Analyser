@@ -1,15 +1,5 @@
 #include "InsertionSort.h"
 
-InsertionSort::InsertionSort()
-{
-    //ctor
-}
-
-InsertionSort::~InsertionSort()
-{
-    //dtor
-}
-
 vector<unsigned int> InsertionSort::sortNumbers(vector<unsigned int> valuesVector)
 {
     int temp, j;

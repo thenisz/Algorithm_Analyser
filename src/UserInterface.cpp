@@ -2,6 +2,9 @@
 
 using namespace std;
 
+/*********************************************************************************************************
+    Gathers user input and passes it to Analyser.
+*********************************************************************************************************/
 void UserInterface::handleUser()
 {
     string sortingAlgorithms;
@@ -13,6 +16,10 @@ void UserInterface::handleUser()
 
     vector<Numbers*> dataSets;
     vector<Sort*> algorithmSet;
+
+/*********************************************************************************************************
+    Scanning for sorting algorithms.  Possible to enter more than 1.
+*********************************************************************************************************/
 
     cout << "Chose sorting algorithms. Type:\n";
     cout << "<1> for bubble sort\n";
@@ -26,7 +33,7 @@ void UserInterface::handleUser()
     {
         cin >> sortingAlgorithms;
 
-       for(int i=0; i<sortingAlgorithms.size(); i++)
+       for(unsigned int i=0; i<sortingAlgorithms.size(); i++)
         {
             switch (sortingAlgorithms[i]) {
             case '1' :
@@ -51,6 +58,10 @@ void UserInterface::handleUser()
         }
     }
 
+/*********************************************************************************************************
+    Scanning for input types. Possible to enter more than 1.
+*********************************************************************************************************/
+
     cout << "\nChose input types. Type:\n";
     cout << "<1> for sorted\n";
     cout << "<2> for random\n";
@@ -62,7 +73,7 @@ void UserInterface::handleUser()
     {
         cin >> inputType;
 
-        for(int i=0; i<inputType.size(); i++)
+        for(unsigned int i=0; i<inputType.size(); i++)
         {
             switch (inputType[i]) {
             case '1' :
@@ -84,6 +95,10 @@ void UserInterface::handleUser()
         }
     }
 
+/*********************************************************************************************************
+    Scanning for initial number of values.
+*********************************************************************************************************/
+
     cout << "\nEnter initial number of values:\n";
     cin >> numOfValues;
 
@@ -93,6 +108,10 @@ void UserInterface::handleUser()
         cin >> numOfValues;
     }
 
+/*********************************************************************************************************
+    Scanning for increment step.
+*********************************************************************************************************/
+
     cout << "\nEnter step:\n";
     cin >> step;
 
@@ -101,6 +120,10 @@ void UserInterface::handleUser()
         cout << "Wrong input!!!\n";
         cin >> step;
     }
+
+/*********************************************************************************************************
+    Scanning for number of iterations.
+*********************************************************************************************************/
 
     cout << "\nEnter number of iterations:\n";
     cin >> iterations;

@@ -6,11 +6,7 @@
 class Sorted : public Numbers
 {
     public:
-        Sorted();
-        virtual ~Sorted();
         void generateNumbers(int numVal);
-    protected:
-    private:
 };
 
 #endif // SORTED_H

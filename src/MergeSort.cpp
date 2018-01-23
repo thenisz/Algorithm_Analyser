@@ -1,15 +1,5 @@
 #include "MergeSort.h"
 
-MergeSort::MergeSort()
-{
-    //ctor
-}
-
-MergeSort::~MergeSort()
-{
-    //dtor
-}
-
 void merge(vector<unsigned int> *valuesVector, int startIndex, int middleIndex, int endIndex)
 {
     int leftSubvectorSize = middleIndex - startIndex + 1;
@@ -22,6 +12,7 @@ void merge(vector<unsigned int> *valuesVector, int startIndex, int middleIndex, 
 
     int leftCounter = 0;
     int rightCounter = 0;
+    //Comparing the values in subvectors and copying tham reorded into valuesVector
     while (leftCounter < leftSubvectorSize && rightCounter < rightSubvectorSize)
     {
         if (leftSubvector[leftCounter] <= rightSubvector[rightCounter])
@@ -36,7 +27,7 @@ void merge(vector<unsigned int> *valuesVector, int startIndex, int middleIndex, 
         }
         startIndex++;
     }
-
+    //Copying remaining values from subvectors
     while (leftCounter < leftSubvectorSize)
     {
         valuesVector->at(startIndex) = leftSubvector[leftCounter];
@@ -56,8 +47,8 @@ void mergeSort(vector<unsigned int> *valuesVector, int startIndex, int endIndex)
 {
     if (startIndex < endIndex)
     {
-        int middleIndex = (startIndex+endIndex)/2;
-        mergeSort(valuesVector, startIndex, middleIndex);
+        int middleIndex = (startIndex+endIndex)/2;  //Calculating middle index
+        mergeSort(valuesVector, startIndex, middleIndex);   //Run the algorithm recursively for two subsets
         mergeSort(valuesVector, middleIndex+1, endIndex);
         merge(valuesVector, startIndex, middleIndex, endIndex);
     }

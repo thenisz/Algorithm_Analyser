@@ -1,15 +1,8 @@
 #include "Sorted.h"
 
-Sorted::Sorted()
-{
-
-}
-
-Sorted::~Sorted()
-{
-    //dtor
-}
-
+/*********************************************************************************************************
+    Fills vector of unsigned integers with consecutive numbers raging from 0 to numVal.
+*********************************************************************************************************/
 void Sorted::generateNumbers(int numVal)
 {
     numbers.clear();

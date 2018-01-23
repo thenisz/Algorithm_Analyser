@@ -1,15 +1,8 @@
 #include "BackwardSorted.h"
 
-BackwardSorted::BackwardSorted()
-{
-
-}
-
-BackwardSorted::~BackwardSorted()
-{
-    //dtor
-}
-
+/*********************************************************************************************************
+    Fills vector of unsigned integers with inverse consecutive numbers raging from numVal-1 to 0.
+*********************************************************************************************************/
 void BackwardSorted::generateNumbers(int numVal)
 {
     numbers.clear();

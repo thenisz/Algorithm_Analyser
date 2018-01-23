@@ -7,12 +7,7 @@
 class HeapSort : public Sort
 {
     public:
-        HeapSort();
-        virtual ~HeapSort();
         vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
-    protected:
-
-    private:
 };
 
 #endif // HEAPSORT_H

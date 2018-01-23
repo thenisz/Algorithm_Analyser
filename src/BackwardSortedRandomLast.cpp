@@ -1,15 +1,9 @@
 #include "BackwardSortedRandomLast.h"
 
-BackwardSortedRandomLast::BackwardSortedRandomLast()
-{
-
-}
-
-BackwardSortedRandomLast::~BackwardSortedRandomLast()
-{
-    //dtor
-}
-
+/*********************************************************************************************************
+    Fills vector of unsigned integers with inverse consecutive numbers raging from numVal-1 to 1
+    and randomizes the last element from range <0, numVal).
+*********************************************************************************************************/
 void BackwardSortedRandomLast::generateNumbers(int numVal)
 {
     numbers.clear();

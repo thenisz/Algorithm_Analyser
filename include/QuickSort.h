@@ -8,8 +8,6 @@
 class QuickSort : public Sort
 {
     public:
-        QuickSort();
-        virtual ~QuickSort();
         vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
 };
 

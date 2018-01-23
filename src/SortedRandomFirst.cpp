@@ -1,15 +1,9 @@
 #include "SortedRandomFirst.h"
 
-SortedRandomFirst::SortedRandomFirst()
-{
-
-}
-
-SortedRandomFirst::~SortedRandomFirst()
-{
-    //dtor
-}
-
+/*********************************************************************************************************
+    Fills vector of unsigned integers with consecutive numbers raging from 0 to numVal.
+    Replaces first element with random value from range <0, numVal).
+*********************************************************************************************************/
 void SortedRandomFirst::generateNumbers(int numVal)
 {
     numbers.clear();
