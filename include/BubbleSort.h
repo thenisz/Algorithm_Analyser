@@ -8,6 +8,7 @@ class BubbleSort : public Sort
 {
     public:
         vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
+        string getName();
 };
 
 #endif // BUBBLESORT_H

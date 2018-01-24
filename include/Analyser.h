@@ -2,7 +2,6 @@
 #define ANALYSER_H
 #include <vector>
 #include <fstream>
-#include <time.h>
 #include <chrono>
 #include <typeinfo>
 
@@ -16,8 +15,6 @@ class Analyser
 {
     public:
         static void analyse(vector<Numbers*> dataSets, vector<Sort*> algorithmSet, int numOfValues, int step, int iterations);
-    protected:
-        static void storeData(vector<unsigned int> vector1);
 };
 
 #endif // ANALYSER_H

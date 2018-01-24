@@ -7,6 +7,7 @@ class BackwardSorted : public Numbers
 {
     public:
         void generateNumbers(int numVal);
+        string getName();
 };
 
 #endif // BACKWARDSORTED_H

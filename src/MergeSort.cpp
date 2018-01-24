@@ -59,3 +59,8 @@ vector<unsigned int> MergeSort::sortNumbers(vector<unsigned int> valuesVector)
     mergeSort(&valuesVector, 0, valuesVector.size()-1);
     return valuesVector;
 }
+
+string MergeSort::getName()
+{
+    return "MergeSort";
+}

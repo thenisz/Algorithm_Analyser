@@ -8,6 +8,7 @@ class CountingSort : public Sort
 {
     public:
         vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
+        string getName();
 };
 
 #endif // COUNTINGSORT_H

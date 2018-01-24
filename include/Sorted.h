@@ -7,6 +7,7 @@ class Sorted : public Numbers
 {
     public:
         void generateNumbers(int numVal);
+        string getName();
 };
 
 #endif // SORTED_H

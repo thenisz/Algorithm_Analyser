@@ -7,6 +7,7 @@ class BackwardSortedRandomLast : public Numbers
 {
     public:
        void generateNumbers(int numVal);
+       string getName();
 };
 
 #endif // BACKWARDSORTEDRANDOMLAST_H

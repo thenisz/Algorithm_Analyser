@@ -12,3 +12,9 @@ vector<unsigned int> CountingSort::sortNumbers(vector<unsigned int> valuesVector
 
     return result;
 }
+
+string CountingSort::getName()
+{
+    return "CountingSort";
+}
+

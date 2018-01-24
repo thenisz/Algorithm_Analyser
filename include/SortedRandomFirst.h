@@ -7,6 +7,7 @@ class SortedRandomFirst : public Numbers
 {
     public:
         void generateNumbers(int numVal);
+        string getName();
 };
 
 #endif // SORTEDRANDOMFIRST_H

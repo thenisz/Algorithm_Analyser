@@ -7,6 +7,7 @@ class Random : public Numbers
 {
     public:
         void generateNumbers(int numVal);
+        string getName();
 };
 
 #endif // RANDOM_H

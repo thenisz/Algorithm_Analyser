@@ -4,7 +4,7 @@ vector<unsigned int> InsertionSort::sortNumbers(vector<unsigned int> valuesVecto
 {
     int temp, j;
 
-    for (int i=1; i<valuesVector.size(); i++ )
+    for (unsigned int i=1; i<valuesVector.size(); i++ )
     {
         temp = valuesVector.at(i);
 
@@ -14,3 +14,9 @@ vector<unsigned int> InsertionSort::sortNumbers(vector<unsigned int> valuesVecto
     }
     return valuesVector;
 }
+
+string InsertionSort::getName()
+{
+    return "InsertionSort";
+}
+

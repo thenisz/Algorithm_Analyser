@@ -1,8 +1,8 @@
 #include "HeapSort.h"
 
-/*********************************************************************************************************
+/*
     Rearranges the heap to be a maximal heap.
-*********************************************************************************************************/
+*/
 void maxHeap(vector<unsigned int> *arr, int n, int parent)
 {
     int largestIndex = parent;
@@ -33,3 +33,9 @@ vector<unsigned int> HeapSort::sortNumbers(vector<unsigned int> valuesVector)
     heapSort(&valuesVector, valuesVector.size());
     return valuesVector;
 }
+
+string HeapSort::getName()
+{
+    return "HeapSort";
+}
+

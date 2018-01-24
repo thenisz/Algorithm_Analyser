@@ -1,29 +1,24 @@
 #include "StoreData.h"
 
-void StoreData::initializeFile(vector<string> names)
+void StoreData::initializeFile(ofstream& myfile, vector<string> names)
 {
-    ofstream myfile;
-    myfile.open ("results.csv");
-    for (unsigned int i=0; i <names.size(); i+=2)
-    {
-        myfile << names[i] << ";";
-        myfile << names[i+1] << ";";
-        myfile <<";";
-    }
+//    myfile.open ("results.csv");
+    for (unsigned int i=0; i<names.size(); i++) myfile << names[i] << ";";
     myfile << "\n";
-    myfile.close();
 }
 
-void StoreData::appendData(vector<double> data, int numVal)
+void StoreData::appendData(ofstream& myfile, vector<double> data, int numVal, int numAlg)
 {
-    ofstream myfile;
-    myfile.open ("results.csv", fstream::app);
+    myfile << numVal << ";";
     for (unsigned int i=0; i < data.size(); i++)
     {
-        myfile << numVal << ";";
+        if ((i%numAlg)==0 && i>0) myfile << ";" << numVal <<";";
         myfile << data[i] << ";";
-        myfile <<";";
     }
     myfile << "\n";
+}
+
+void StoreData::closeFile(ofstream& myfile)
+{
     myfile.close();
 }
