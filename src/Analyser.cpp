@@ -14,17 +14,38 @@
 *********************************************************************************************************/
 void Analyser::analyse(vector<Numbers*> dataSets, vector<Sort*> algorithmSet, int numOfValues, int step, int iterations)
 {
+    vector<double> results;
+    vector<string> columns;
+
+    //Generating columns' names
+    for(Numbers* elementNum : dataSets)
+    {
+        for(Sort* elementSort : algorithmSet)
+        {
+            columns.push_back(typeid(*elementNum).name());
+            columns.push_back(typeid(*elementSort).name());
+        }
+    }
+    StoreData::initializeFile(columns);
+    columns.clear();
+
+    //Running analysis.
     for (int i=0; i<iterations; i++)
     {
         for(Numbers* elementNum : dataSets)
         {
             elementNum->generateNumbers(numOfValues);
-            storeData(elementNum->getNumbers());
             for(Sort* elementSort : algorithmSet)
             {
-                storeData(elementSort->sortNumbers(elementNum->getNumbers()));
+                auto start = std::chrono::high_resolution_clock::now();
+                elementSort->sortNumbers(elementNum->getNumbers());
+                auto finish = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> elapsed = finish - start;
+                results.push_back(elapsed.count());
             }
         }
+        StoreData::appendData(results, numOfValues);
+        results.clear();
         numOfValues += step;
     }
 }

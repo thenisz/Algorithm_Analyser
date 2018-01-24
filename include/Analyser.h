@@ -2,9 +2,13 @@
 #define ANALYSER_H
 #include <vector>
 #include <fstream>
+#include <time.h>
+#include <chrono>
+#include <typeinfo>
 
 #include "Numbers.h"
 #include "Sort.h"
+#include "StoreData.h"
 
 using namespace std;
 
