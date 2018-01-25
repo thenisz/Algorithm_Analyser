@@ -16,44 +16,98 @@ void Analyser::analyse(vector<Numbers*> dataSets, vector<Sort*> algorithmSet, in
 {
     vector<double> results; //Execution times
     vector<string> columns; //Names of sorting algorithms and input types
-    ofstream *myfile = new ofstream;
 
-    myfile->open("results.csv");
+//    myfile->open("results.csv");
 
-    //Generating columns' names
-    for(Numbers* elementNum : dataSets)
-    {
-        columns.push_back(elementNum->getName());
-        for(Sort* elementSort : algorithmSet)
-        {
-            columns.push_back(elementSort->getName());
-        }
-        columns.push_back(" ");
-    }
-    StoreData::initializeFile(*myfile, columns);
-    columns.clear();
-
-    int numAlg = algorithmSet.size();
+//    //Generating columns' names
+//    for(Numbers* elementNum : dataSets)
+//    {
+//        columns.push_back(elementNum->getName());
+//        for(Sort* elementSort : algorithmSet)
+//        {
+//            columns.push_back(elementSort->getName());
+//        }
+//        columns.push_back(" ");
+//    }
+//    StoreData::initializeFile(*myfile, columns);
+//    columns.clear();
+//
+//    int numAlg = algorithmSet.size();
 
     //Running analysis.
-    for (int i=0; i<=iterations; i++)
+
+    for(Sort* elementSort : algorithmSet)
     {
+        ofstream *myfile = new ofstream;
+        string fileName = elementSort->getName();
+        fileName.append(".csv");
+        myfile->open(fileName);
+
+        columns.push_back(elementSort->getName());
         for(Numbers* elementNum : dataSets)
         {
-            elementNum->generateNumbers(numOfValues);
-            for(Sort* elementSort : algorithmSet)
+            columns.push_back(elementNum->getName());
+        }
+
+        StoreData::initializeFile(*myfile, columns);
+        columns.clear();
+
+        int numCount = numOfValues;
+        for (int i=0; i<=iterations; i++)
+        {
+            for(Numbers* elementNum : dataSets)
             {
+                elementNum->generateNumbers(numCount);
                 auto start = std::chrono::high_resolution_clock::now();
                 elementSort->sortNumbers(elementNum->getNumbers());
                 auto finish = std::chrono::high_resolution_clock::now();
                 std::chrono::duration<double> elapsed = finish - start;
                 results.push_back(elapsed.count());
             }
+            StoreData::appendData(*myfile, results, numCount);
+            results.clear();
+            numCount += step;
         }
-        StoreData::appendData(*myfile, results, numOfValues, numAlg);
-        results.clear();
-        numOfValues += step;
+        StoreData::closeFile(*myfile);
+        free(myfile);
     }
-    StoreData::closeFile(*myfile);
-    free(myfile);
+
+//    myfile->open("results.csv");
+//
+//    //Generating columns' names
+//    for(Numbers* elementNum : dataSets)
+//    {
+//        columns.push_back(elementNum->getName());
+//        for(Sort* elementSort : algorithmSet)
+//        {
+//            columns.push_back(elementSort->getName());
+//        }
+//        columns.push_back(" ");
+//    }
+//    StoreData::initializeFile(*myfile, columns);
+//    columns.clear();
+//
+//    int numAlg = algorithmSet.size();
+//
+//    //Running analysis.
+//    for (int i=0; i<=iterations; i++)
+//    {
+//        for(Numbers* elementNum : dataSets)
+//        {
+//            elementNum->generateNumbers(numOfValues);
+//            for(Sort* elementSort : algorithmSet)
+//            {
+//                auto start = std::chrono::high_resolution_clock::now();
+//                elementSort->sortNumbers(elementNum->getNumbers());
+//                auto finish = std::chrono::high_resolution_clock::now();
+//                std::chrono::duration<double> elapsed = finish - start;
+//                results.push_back(elapsed.count());
+//            }
+//        }
+//        StoreData::appendData(*myfile, results, numOfValues, numAlg);
+//        results.clear();
+//        numOfValues += step;
+//    }
+//    StoreData::closeFile(*myfile);
+//    free(myfile);
 }

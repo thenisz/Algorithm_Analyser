@@ -1,12 +1,1 @@
-BackwardSorted;QuickSort; ;
-100000;0.008;
-200000;0.016;
-300000;0.027;
-400000;0.035;
-500000;0.046;
-600000;0.055;
-700000;0.065;
-800000;0.076;
-900000;0.12;
-1000000;0.121;
-1100000;0.115;
+Sorted;BubbleSort;QuickSort;InsertionSort; ;Random;BubbleSort;QuickSort;InsertionSort; ;BackwardSorted;BubbleSort;QuickSort;InsertionSort; ;
