@@ -41,6 +41,7 @@ void Analyser::analyse(vector<Numbers*> dataSets, vector<Sort*> algorithmSet, in
                 elementNum->generateNumbers(numCount);
                 //auto start = std::chrono::high_resolution_clock::now();
                 elementSort->sortNumbers(elementNum->getNumbers());
+                //for (unsigned int numer : numery) cout << numer << ", ";
                 //auto finish = std::chrono::high_resolution_clock::now();
                 //std::chrono::duration<double> elapsed = finish - start;
                 //results.push_back(elapsed.count());

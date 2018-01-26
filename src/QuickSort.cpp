@@ -1,173 +1,44 @@
 #include "QuickSort.h"
 
-int compare (const void * a, const void * b)
+int QuickSort::partition(vector<unsigned int> &arr, int low, int high)
 {
-    return ( *(int*)a - *(int*)b );
-}
-
-
-#include <sys/types.h>
-#include <stdlib.h>
-static __inline char	*med3(char *, char *, char *, int (*)(const void *, const void *));
-static __inline void	 swapfunc(char *, char *, int, int);
-#define min(a, b)	(a) < (b) ? a : b
-/*
- * Qsort routine from Bentley & McIlroy's "Engineering a Sort Function".
- */
-#define swapcode(TYPE, parmi, parmj, n) { 		\
-	long i = (n) / sizeof (TYPE); 			\
-	TYPE *pi = (TYPE *) (parmi); 			\
-	TYPE *pj = (TYPE *) (parmj); 			\
-	do { 						\
-		TYPE	t = *pi;			\
-		*pi++ = *pj;				\
-		*pj++ = t;				\
-        } while (--i > 0);				\
-}
-#define SWAPINIT(a, es) swaptype = ((char *)a - (char *)0) % sizeof(long) || \
-	es % sizeof(long) ? 2 : es == sizeof(long)? 0 : 1;
-static __inline void
-swapfunc(char *a, char *b, int n, int swaptype)
-{
-	if (swaptype <= 1)
-		swapcode(long, a, b, n)
-	else
-		swapcode(char, a, b, n)
-}
-#define swap(a, b)					\
-	if (swaptype == 0) {				\
-		long t = *(long *)(a);			\
-		*(long *)(a) = *(long *)(b);		\
-		*(long *)(b) = t;			\
-	} else						\
-		swapfunc(a, b, es, swaptype)
-#define vecswap(a, b, n) 	if ((n) > 0) swapfunc(a, b, n, swaptype)
-static __inline char *
-med3(char *a, char *b, char *c, int (*cmp)(const void *, const void *))
-{
-	return cmp(a, b) < 0 ?
-	       (cmp(b, c) < 0 ? b : (cmp(a, c) < 0 ? c : a ))
-              :(cmp(b, c) > 0 ? b : (cmp(a, c) < 0 ? a : c ));
-}
-void
-QuickSort::_qsort(void *aa, size_t n, size_t es, int (*cmp)(const void *, const void *))
-{
-	char *pa, *pb, *pc, *pd, *pl, *pm, *pn;
-	int d, r, swaptype, swap_cnt;
-	char *a = (char*)aa;
-	iterationsCount+=2;                                     /**INCREMENT**/
-loop:	SWAPINIT(a, es);
-	swap_cnt = 0;
-	iterationsCount++;                                      /**INCREMENT**/
-	if (n < 7)
+    int pivot = arr[high];    // pivot
+    int i = (low - 1);  // Index of smaller element
+    iterationsCount+=2;                                  /**INCREMENT**/
+    for (int j = low; j <= high- 1; j++)
     {
-		for (pm = (char *)a + es; pm < (char *) a + n * es; pm += es)
-		{
-		    iterationsCount++;                              /**INCREMENT**/
-			for (pl = pm; pl > (char *) a && cmp(pl - es, pl) > 0; pl -= es)
-			{
-				swap(pl, pl - es);
-				iterationsCount+=2;                         /**INCREMENT**/
-			}
-		}
-		return;
-	}
-	pm = (char *)a + (n / 2) * es;
-	iterationsCount+=4;                                     /**INCREMENT**/
-	if (n > 7)
-    {
-		pl = (char *)a;
-		pn = (char *)a + (n - 1) * es;
-		iterationsCount+=3;                         /**INCREMENT**/
-		if (n > 40) {
-			d = (n / 8) * es;/**** +2 ****/
-			pl = med3(pl, pl + d, pl + 2 * d, cmp);
-			pm = med3(pm - d, pm, pm + d, cmp);
-			pn = med3(pn - 2 * d, pn - d, pn, cmp);
-			iterationsCount+=10;                         /**INCREMENT**/
-		}
-		iterationsCount++;                         /**INCREMENT**/
-		pm = med3(pl, pm, pn, cmp);
-	}
-	swap(a, pm);
-	pa = pb = (char *)a + es;
-
-	pc = pd = (char *)a + (n - 1) * es;
-	iterationsCount+=6;                         /**INCREMENT**/
-	for (;;) {
-		while (pb <= pc && (r = cmp(pb, a)) <= 0) {
-			if (r == 0)
-            {
-				swap_cnt = 1;
-				swap(pa, pb);
-				pa += es;
-				iterationsCount+=3;                         /**INCREMENT**/
-            }
-			pb += es;
-			iterationsCount+=2;                         /**INCREMENT**/
-		}
-		while (pb <= pc && (r = cmp(pc, a)) >= 0)
+        iterationsCount+=2;                                  /**INCREMENT**/
+        if (arr[j] <= pivot)
         {
-            iterationsCount+=2;                         /**INCREMENT**/
-			if (r == 0)
-			{
-				swap_cnt = 1;
-				swap(pc, pd);
-				pd -= es;
-				iterationsCount+=3;                         /**INCREMENT**/
-			}
-			pc -= es;
-            iterationsCount+=2;                         /**INCREMENT**/
-		}
-		if (pb > pc)
-        {
-			break;
+            i++;    // increment index of smaller element
+            swap(arr[i], arr[j]);
+            iterationsCount+=2;                                  /**INCREMENT**/
         }
-		swap(pb, pc);
-		swap_cnt = 1;
-		pb += es;
-		pc -= es;
-		iterationsCount+=4;                         /**INCREMENT**/
-	}
-	if (swap_cnt == 0)
-    {  /* Switch to insertion sort */
-		for (pm = (char *) a + es; pm < (char *) a + n * es; pm += es)
-        {
-            iterationsCount++;                         /**INCREMENT**/
-			for (pl = pm; pl > (char *) a && cmp(pl - es, pl) > 0; pl -= es)
-            {
-				swap(pl, pl - es);
-				iterationsCount+=2;                         /**INCREMENT**/
-            }
-        }
-		return;
     }
-	pn = (char *)a + n * es;
-	r = min(pa - (char *)a, pb - pa);
-	vecswap(a, pb - r, r);
-	r = min(pd - pc, pn - pd - (int)es);
-	vecswap(pb, pn - r, r);
-    iterationsCount+=8;                         /**INCREMENT**/
-	if ((r = pb - pa) > (int)es)
-		qsort(a, r / es, es, cmp);
-    iterationsCount+=2;                         /**INCREMENT**/
-	if ((r = pd - pc) > (int)es)
-    {
-		/* Iterate rather than recurse to save stack space */
-		a = pn - r;
-		n = r / es;
-		iterationsCount+=2;                         /**INCREMENT**/
-		goto loop;
-	}
-	iterationsCount++;                         /**INCREMENT**/
-/*		qsort(pn - r, r / es, es, cmp);*/
+    swap(arr[i + 1], arr[high]);
+    iterationsCount+=2;                                  /**INCREMENT**/
+    return (i + 1);
 }
 
+/* The main function that implements QuickSort
+ arr[] --> Array to be sorted,
+  low  --> Starting index,
+  high  --> Ending index */
+void QuickSort::quickSort(vector<unsigned int> &arr, int low, int high)
+{
+    if (low < high)
+    {
+        unsigned int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+        iterationsCount+=2;                                  /**INCREMENT**/
+    }
+}
 
 vector<unsigned int> QuickSort::sortNumbers(vector<unsigned int> valuesVector)
 {
     iterationsCount = 0;
-    _qsort(valuesVector.data(), valuesVector.size(), sizeof(int), compare);
+    quickSort(valuesVector, 0, valuesVector.size()-1);
     return valuesVector;
 }
 

@@ -24,19 +24,6 @@ vector<unsigned int> ShellSort::sortNumbers(vector<unsigned int> valuesVector)
         }
     }
     return valuesVector;
-
-//    iterationsCount = 0;
-//    int temp, j;
-//
-//    for (unsigned int i=1; i<valuesVector.size(); i++ )
-//    {
-//        temp = valuesVector.at(i);/**** +1 ****/
-//
-//        for (j=i-1; j>=0 && valuesVector.at(j)>temp; j-- ) valuesVector.at(j+1) = valuesVector.at(j);
-//
-//        valuesVector.at(j+1) = temp;/**** +1 ****/
-//    }
-//    return valuesVector;
 }
 
 string ShellSort::getName()

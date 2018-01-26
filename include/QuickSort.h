@@ -9,7 +9,8 @@ class QuickSort : public Sort
 {
     public:
         vector<unsigned int> sortNumbers(vector<unsigned int> valuesVector);
-        void _qsort(void *aa, size_t n, size_t es, int (*cmp)(const void *, const void *));
+        int partition(vector<unsigned int> &arr, int low, int high);
+        void quickSort(vector<unsigned int> &arr, int low, int high);
         string getName();
 };
 
