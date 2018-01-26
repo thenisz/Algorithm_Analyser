@@ -6,7 +6,7 @@ void StoreData::initializeFile(ofstream& myfile, vector<string> names)
     myfile << "\n";
 }
 
-void StoreData::appendData(ofstream& myfile, vector<double> data, int numVal)
+void StoreData::appendData(ofstream& myfile, vector<long unsigned int> data, int numVal)
 {
     myfile << numVal << ";";
     for (unsigned int i=0; i < data.size(); i++)

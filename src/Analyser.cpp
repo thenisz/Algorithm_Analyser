@@ -14,27 +14,8 @@
 */
 void Analyser::analyse(vector<Numbers*> dataSets, vector<Sort*> algorithmSet, int numOfValues, int step, int iterations)
 {
-    vector<double> results; //Execution times
+    vector<long unsigned int> results; //Execution times
     vector<string> columns; //Names of sorting algorithms and input types
-
-//    myfile->open("results.csv");
-
-//    //Generating columns' names
-//    for(Numbers* elementNum : dataSets)
-//    {
-//        columns.push_back(elementNum->getName());
-//        for(Sort* elementSort : algorithmSet)
-//        {
-//            columns.push_back(elementSort->getName());
-//        }
-//        columns.push_back(" ");
-//    }
-//    StoreData::initializeFile(*myfile, columns);
-//    columns.clear();
-//
-//    int numAlg = algorithmSet.size();
-
-    //Running analysis.
 
     for(Sort* elementSort : algorithmSet)
     {
@@ -58,11 +39,12 @@ void Analyser::analyse(vector<Numbers*> dataSets, vector<Sort*> algorithmSet, in
             for(Numbers* elementNum : dataSets)
             {
                 elementNum->generateNumbers(numCount);
-                auto start = std::chrono::high_resolution_clock::now();
+                //auto start = std::chrono::high_resolution_clock::now();
                 elementSort->sortNumbers(elementNum->getNumbers());
-                auto finish = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<double> elapsed = finish - start;
-                results.push_back(elapsed.count());
+                //auto finish = std::chrono::high_resolution_clock::now();
+                //std::chrono::duration<double> elapsed = finish - start;
+                //results.push_back(elapsed.count());
+                results.push_back(elementSort->getIterationsCount());
             }
             StoreData::appendData(*myfile, results, numCount);
             results.clear();
@@ -71,43 +53,4 @@ void Analyser::analyse(vector<Numbers*> dataSets, vector<Sort*> algorithmSet, in
         StoreData::closeFile(*myfile);
         free(myfile);
     }
-
-//    myfile->open("results.csv");
-//
-//    //Generating columns' names
-//    for(Numbers* elementNum : dataSets)
-//    {
-//        columns.push_back(elementNum->getName());
-//        for(Sort* elementSort : algorithmSet)
-//        {
-//            columns.push_back(elementSort->getName());
-//        }
-//        columns.push_back(" ");
-//    }
-//    StoreData::initializeFile(*myfile, columns);
-//    columns.clear();
-//
-//    int numAlg = algorithmSet.size();
-//
-//    //Running analysis.
-//    for (int i=0; i<=iterations; i++)
-//    {
-//        for(Numbers* elementNum : dataSets)
-//        {
-//            elementNum->generateNumbers(numOfValues);
-//            for(Sort* elementSort : algorithmSet)
-//            {
-//                auto start = std::chrono::high_resolution_clock::now();
-//                elementSort->sortNumbers(elementNum->getNumbers());
-//                auto finish = std::chrono::high_resolution_clock::now();
-//                std::chrono::duration<double> elapsed = finish - start;
-//                results.push_back(elapsed.count());
-//            }
-//        }
-//        StoreData::appendData(*myfile, results, numOfValues, numAlg);
-//        results.clear();
-//        numOfValues += step;
-//    }
-//    StoreData::closeFile(*myfile);
-//    free(myfile);
 }

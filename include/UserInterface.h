@@ -10,6 +10,7 @@
 #include "MergeSort.h"
 #include "CountingSort.h"
 #include "HeapSort.h"
+#include "ShellSort.h"
 
 #include "Numbers.h"
 #include "Sorted.h"

@@ -28,6 +28,7 @@ void UserInterface::handleUser()
     cout << "<4> for merge sort\n";
     cout << "<5> for counting sort\n";
     cout << "<6> for heap sort\n";
+    cout << "<7> for shell sort\n";
 
     while (!algorithmSet.size())
     {
@@ -53,6 +54,9 @@ void UserInterface::handleUser()
                 break;
             case '6' :
                 algorithmSet.push_back(new HeapSort);
+                break;
+            case '7' :
+                algorithmSet.push_back(new ShellSort);
                 break;
             }
         }
@@ -115,7 +119,7 @@ void UserInterface::handleUser()
     cout << "\nEnter step:\n";
     cin >> step;
 
-    while (step < 1)
+    while (step < 0)
     {
         cout << "Wrong input!!!\n";
         cin >> step;
@@ -128,7 +132,7 @@ void UserInterface::handleUser()
     cout << "\nEnter number of iterations:\n";
     cin >> iterations;
 
-    while (iterations < 1)
+    while (iterations < 0)
     {
         cout << "Wrong input!!!\n";
         cin >> iterations;

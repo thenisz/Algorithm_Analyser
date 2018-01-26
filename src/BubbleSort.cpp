@@ -2,15 +2,19 @@
 
 vector<unsigned int> BubbleSort::sortNumbers(vector<unsigned int> valuesVector)
 {
+    iterationsCount = 0;
     bool swapp = true;
     while(swapp){
         swapp = false;
-        for (int i = 0; i < valuesVector.size()-1; i++)
+        iterationsCount++;                                          /**INCREMENT**/
+        for (unsigned int i = 0; i < valuesVector.size()-1; i++)
         {
+            iterationsCount+=3;                                      /**INCREMENT**/
             if (valuesVector.at(i) > valuesVector.at(i+1) )
             {
                 swap(valuesVector.at(i),valuesVector.at(i+1));
                 swapp = true;
+                iterationsCount+=2;                                  /**INCREMENT**/
             }
         }
     }
