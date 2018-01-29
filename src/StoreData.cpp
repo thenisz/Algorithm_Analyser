@@ -16,8 +16,3 @@ void StoreData::appendData(ofstream& myfile, vector<long unsigned int> data, int
     }
     myfile << "\n";
 }
-
-void StoreData::closeFile(ofstream& myfile)
-{
-    myfile.close();
-}

@@ -48,7 +48,8 @@ void Analyser::analyse(vector<Numbers*> dataSets, vector<Sort*> algorithmSet, in
             results.clear();
             numCount += step;
         }
-        StoreData::closeFile(*myfile);
+        myfile->close();
+        //StoreData::closeFile(*myfile);
         free(myfile);
     }
 }
