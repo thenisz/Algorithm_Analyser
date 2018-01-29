@@ -34,6 +34,7 @@
 # Project
 *.cbp
 *.depend
+*.layout
 
 # Other data
 *.csv
