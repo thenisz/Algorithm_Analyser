@@ -14,7 +14,7 @@ vector<unsigned int> InsertionSort::sortNumbers(vector<unsigned int> valuesVecto
             iterationsCount+=2;                         /**INCREMENT**/
         }
 
-        valuesVector.at(j+1) = temp;/**** +1 ****/
+        valuesVector.at(j+1) = temp;
         iterationsCount+=3;                         /**INCREMENT**/
     }
     return valuesVector;

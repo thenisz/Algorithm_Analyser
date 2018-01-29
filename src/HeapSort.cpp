@@ -16,30 +16,35 @@ void HeapSort::maxHeap(vector<unsigned int> *arr, int n, int parent)
     if (leftChildIndex < n && arr->at(leftChildIndex) > arr->at(largestIndex))
     {
         largestIndex = leftChildIndex;
-        iterationsCount+=2;                         /**INCREMENT**/
+        iterationsCount++;                         /**INCREMENT**/
     }
     if (rightChildIndex < n && arr->at(rightChildIndex) > arr->at(largestIndex))
     {
         largestIndex = rightChildIndex;
-        iterationsCount+=2;                         /**INCREMENT**/
+        iterationsCount++;                         /**INCREMENT**/
     }
 
     if (largestIndex != parent)     // If a higher value was found in children cells, its value is swapped with parent the path is scanned recursively to higher indexes
     {
         swap(arr->at(parent), arr->at(largestIndex));
-        iterationsCount+=2;                         /**INCREMENT**/
+        iterationsCount++;                         /**INCREMENT**/
         maxHeap(arr, n, largestIndex);
     }
+    iterationsCount+=3;                         /**INCREMENT**/
 }
 
 void HeapSort::heapSort(vector<unsigned int> *arr, int n)
 {
-    for (int i=n/2-1; i>=0; i--) maxHeap(arr, n, i);    //Calculating the highest parent index and transforming the heap starting from it
+    for (int i=n/2-1; i>=0; i--)
+    {
+            maxHeap(arr, n, i);    //Calculating the highest parent index and transforming the heap starting from it
+            iterationsCount++;                     /**INCREMENT**/
+    }
     swap(arr->at(0), arr->at(n-1)); //The highest value is moved the the last cell
+    iterationsCount+=3;                     /**INCREMENT**/
     if (n>1)
     {
         heapSort(arr, n-1);    //Algorithm is started recursively for the set of number limited by the last element
-        iterationsCount+=2;                     /**INCREMENT**/
     }
 }
 
