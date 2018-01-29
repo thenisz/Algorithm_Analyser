@@ -39,12 +39,9 @@ void Analyser::analyse(vector<Numbers*> dataSets, vector<Sort*> algorithmSet, in
             for(Numbers* elementNum : dataSets)
             {
                 elementNum->generateNumbers(numCount);
-                //auto start = std::chrono::high_resolution_clock::now();
+
                 elementSort->sortNumbers(elementNum->getNumbers());
-                //for (unsigned int numer : numery) cout << numer << ", ";
-                //auto finish = std::chrono::high_resolution_clock::now();
-                //std::chrono::duration<double> elapsed = finish - start;
-                //results.push_back(elapsed.count());
+
                 results.push_back(elementSort->getIterationsCount());
             }
             StoreData::appendData(*myfile, results, numCount);
