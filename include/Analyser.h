@@ -2,8 +2,6 @@
 #define ANALYSER_H
 #include <vector>
 #include <fstream>
-#include <chrono>
-#include <typeinfo>
 
 #include "Numbers.h"
 #include "Sort.h"
